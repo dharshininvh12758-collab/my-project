@@ -1,0 +1,62 @@
+import java.util.Scanner;
+
+class Student{
+  int rollno;
+  String name;
+  double mark1,mark2,mark3;
+  
+  void getInput(){
+    Scanner sc=new Scanner(System.in);
+    
+    System.out.print("Enter Roll no: ");
+    rollno=sc.nextInt();
+    
+    System.out.print("Enter Name: ");
+    name=sc.next();
+    
+    System.out.print("Enter Mark-1: ");
+    mark1=sc.nextDouble();
+    
+    System.out.print("Enter Mark-2: ");
+    mark2=sc.nextDouble();
+    
+    System.out.print("Enter Mark-3: ");
+    mark3=sc.nextDouble();
+  }
+  void claculateMark(){
+    double total=mark1+mark2+mark3;
+    double average=total/3;
+    
+    System.out.println("Student Details");
+    System.out.println("Roll no:"+rollno);
+    System.out.println("Name:"+name);
+    System.out.println("Total:"+total);
+    System.out.println("Average:"+average);
+    
+    if(average>=50)
+        System.out.println("Result:Pass");
+    else
+       System.out.println("Result:Fail");
+  }
+}
+
+  public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        
+        System.out.print("Enter number of students: ");
+        int n=sc.nextInt();
+        
+        Student[]students=new Student[n];
+        
+        for(int i=0;i<n;i++){
+            System.out.println("Enter details for student "+(i+1));
+            students[i]=new Student();
+            students[i].getInput();
+        }
+        for(int i=0;i<n;i++){
+        students[i].claculateMark();
+        }
+    }
+    
+  }
